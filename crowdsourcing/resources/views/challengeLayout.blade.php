@@ -4,9 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v3.8.5">
-    <title>Crowdsourcing · Bootstrap</title>
+    <title> @yield('title', 'Challenge') </title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
 
@@ -63,57 +62,10 @@
     </div>
   </div>
 </header>
-
-<h1 align="Center"> Welcome to Crowdsourcing</h1>
-
-<main role="main">
-  <div class="album py-5 bg-light">
-    <div class="container">
-
-      <div class="row">
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-            <img src={{ asset('img/android.jpg')}} alt="aaa" style="width:100%;height:225px;" >
-            <div class="card-body">
-              <p class="card-text">Text - Text Challenge</p>
-              <div class="d-flex justify-content-between align-items-center">
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-            <img src={{ asset('img/thumbprint.png')}} alt="thumbprint" style="width:100%;height:225px;" >
-            <div class="card-body">
-              <p class="card-text">Image - Image Challenge</p>
-              <div class="d-flex justify-content-between align-items-center">
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-            <img src={{ asset('img/mountain.jpg')}} alt="mountain" style="width:100%;height:225px;" >
-            <div class="card-body">
-              <p class="card-text">Text - Image Challenge</p>
-              <div class="d-flex justify-content-between align-items-center">
-              </div>
-            </div>
-          </div>
-        </div>
+@yield('challengeDesc')
+@yield('content')
 
 
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-</main>
 
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

@@ -14,3 +14,15 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/texttext', function() {
+    return view('texttextchallenge');
+});
+
+Route::get('/textimage', function() {
+    return view('textimagechallenge');
+});
+
+Route::get('/imageimage', function() {
+    return view('imageimagechallenge');
+});
