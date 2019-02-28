@@ -26,3 +26,11 @@ Route::get('/textimage', function() {
 Route::get('/imageimage', function() {
     return view('imageimagechallenge');
 });
+
+Route::get('/signIn', function() {
+    return view('signIn');
+});
+
+Route::get('/adminPanel', function() {
+    return view('adminPanel');
+});
