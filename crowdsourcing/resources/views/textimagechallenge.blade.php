@@ -1,11 +1,11 @@
 @extends('challengeLayout')
 
 @section('title')
-Image-Image
+Text-Image
 @endsection
 
 @section('challengeDesc')
-    <h1 align="Center"> Image-Image Challenge</h1>
+    <h1 align="Center"> Text-Image Challenge</h1>
     <h3 align="Center"> Which of the following is a latent fingerprint? </h3>
   
 @endsection

@@ -15,17 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/texttext', function() {
-    return view('texttextchallenge');
-});
+Route::get('/texttext', 'ChallengesController@texttext');
+Route::get('/textimage', 'ChallengesController@textimage');
+Route::get('/imageimage', 'ChallengesController@imageimage');
 
-Route::get('/textimage', function() {
-    return view('textimagechallenge');
-});
-
-Route::get('/imageimage', function() {
-    return view('imageimagechallenge');
-});
 
 Route::get('/signIn', function() {
     return view('signIn');
