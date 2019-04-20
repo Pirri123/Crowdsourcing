@@ -6,7 +6,7 @@ Text-Text
 
 @section('challengeDesc')
     <h1 align="Center"> Text-Text Challenge</h1>
-    <h3 align="Center"> Which of the following images were made by a bot? </h3>
+    <h3 align="Center"> Which of the following images was made by a bot? </h3>
 @endsection
 
 @section('content')

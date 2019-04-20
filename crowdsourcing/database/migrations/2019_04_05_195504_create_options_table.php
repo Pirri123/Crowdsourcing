@@ -17,7 +17,7 @@ class CreateOptionsTable extends Migration
             $table->bigIncrements('id');
             $table->boolean('Correct');
             $table->string('ImgLocation');
-            $table->integer('QuestionID')->references('id')->on('questions')->onDelete('cascade');
+            $table->integer('QuestionID')->references('id')->on('questions')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

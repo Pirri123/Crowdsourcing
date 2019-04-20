@@ -15,7 +15,8 @@ class CreateQuestionsTable extends Migration
     {
         Schema::create('questions', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('QuestionType');
+            $table->integer('QuestionType'); // /*1 Text-Text, 2 Text-Image, 3 Image-Image*/
+            $table->string('QuestionText');
             $table->timestamps();
         });
     }

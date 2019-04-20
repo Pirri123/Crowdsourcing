@@ -27,3 +27,6 @@ Route::get('/signIn', function() {
 Route::get('/adminPanel', function() {
     return view('adminPanel');
 });
+
+Route::get('/accounts', 'AccountsController@index');
+Route::get('/challenges', 'ChallengesController@index');

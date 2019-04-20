@@ -18,7 +18,7 @@ class CreateUserResponsesTable extends Migration
             $table->string('RightAnswer');
             $table->string('WrongAnswer');
             $table->string('GivenAnswer');
-            $table->integer('QuestionID')->references('id')->on('questions')->onDelete('cascade');
+            $table->integer('QuestionID')->references('id')->on('questions')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }
