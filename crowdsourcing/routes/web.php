@@ -15,9 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/texttext', 'ChallengesController@texttext');
-Route::get('/textimage', 'ChallengesController@textimage');
-Route::get('/imageimage', 'ChallengesController@imageimage');
+Route::get('/texttext/{questionId}', 'ChallengesController@textTextIndex');
+Route::get('/textimage{questionId}', 'ChallengesController@textImageIndex');
+Route::get('/imageimage{questionId}', 'ChallengesController@imageImageIndex');
 
 
 Route::get('/signIn', function() {
