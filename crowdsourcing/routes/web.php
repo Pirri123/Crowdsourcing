@@ -16,8 +16,15 @@ Route::get('/', function () {
 });
 
 Route::get('/texttext/{questionId}', 'ChallengesController@textTextIndex');
-Route::get('/textimage{questionId}', 'ChallengesController@textImageIndex');
-Route::get('/imageimage{questionId}', 'ChallengesController@imageImageIndex');
+Route::get('/textimage/{questionId}', 'ChallengesController@textImageIndex');
+Route::get('/imageimage/{questionId}', 'ChallengesController@imageImageIndex');
+
+Route::get('/questions/create', 'QuestionsController@create');
+Route::post('/questions', 'QuestionsController@store');
+
+Route::get('/options/create', 'OptionsController@create');
+Route::post('/options', 'OptionsController@store');
+
 
 
 Route::get('/signIn', function() {

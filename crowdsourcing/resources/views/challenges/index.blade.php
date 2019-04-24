@@ -14,7 +14,9 @@
    
     <div>
       
-      <button type="submit"> Back</button>
+        <button href="{{ url()->previous() }}" class="btn btn-default">Back</button>
+        <a href="{{ url()->previous() }}" class="btn btn-default">Back</a>
+
       
     </div>
 </body>
