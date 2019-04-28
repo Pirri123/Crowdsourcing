@@ -21,9 +21,16 @@ Route::get('/imageimage/{questionId}', 'ChallengesController@imageImageIndex');
 
 Route::get('/questions/create', 'QuestionsController@create');
 Route::post('/questions', 'QuestionsController@store');
+Route::get('/questions', 'QuestionsController@index');
+Route::get('/questions/edit/{id}', 'QuestionsController@edit');
 
 Route::get('/options/create', 'OptionsController@create');
 Route::post('/options', 'OptionsController@store');
+Route::get('/options', 'OptionsController@index');
+Route::get('/options/edit/{option}', 'OptionsController@edit');
+Route::post('/options/edit/{option}', 'OptionsController@update');
+Route::get('/options/delete/{option}', 'OptionsController@delete');
+
 
 
 

@@ -9,9 +9,35 @@ use App\Question;
 
 class OptionsController extends Controller
 {
+    public function index(){
+        $options = Option::all();
+        return view('options.index', compact('options'));
+
+    }
     public function create(){
         $questions = Question::all();
         return view('options.create', compact('questions'));
+    }
+
+    public function edit(Option $option){
+        $options = Option::all();
+        $questions = Question::all();
+        return view('options.edit', compact('option', 'questions'));
+    }
+
+    public function update(Option $option){
+        $this->validate(request(), [
+            'ImgLocation' => 'required',
+            'Correct' => 'required'
+        ]);
+
+        $option->Correct = request('Correct');
+        $option->ImgLocation = request('ImgLocation');
+        $option->save();
+
+        return redirect('/options');
+
+
     }
 
     public function store(){
@@ -28,6 +54,11 @@ class OptionsController extends Controller
         $option2->QuestionID = request('QuestionID');
         $option2->save();
 
-        return redirect('/');
+        return redirect('/options');
+    }
+
+    public function delete(Option $option){
+        $option->delete();
+        return redirect('/options');
     }
 }
