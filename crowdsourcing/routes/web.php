@@ -22,7 +22,9 @@ Route::get('/imageimage/{questionId}', 'ChallengesController@imageImageIndex');
 Route::get('/questions/create', 'QuestionsController@create');
 Route::post('/questions', 'QuestionsController@store');
 Route::get('/questions', 'QuestionsController@index');
-Route::get('/questions/edit/{id}', 'QuestionsController@edit');
+Route::get('/questions/edit/{question}', 'QuestionsController@edit');
+Route::post('/questions/edit/{question}', 'QuestionsController@update');
+Route::get('/questions/delete/{question}', 'QuestionsController@delete');
 
 Route::get('/options/create', 'OptionsController@create');
 Route::post('/options', 'OptionsController@store');

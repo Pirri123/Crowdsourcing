@@ -17,6 +17,7 @@ class CreateAccountsTable extends Migration
             $table->bigIncrements('id');
             $table->string('username');
             $table->string('password');
+            $table->string('userType');
             $table->timestamps();
         });
     }

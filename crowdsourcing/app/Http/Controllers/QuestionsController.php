@@ -25,4 +25,26 @@ class QuestionsController extends Controller
         return redirect('/');
 
     }
+
+    public function edit(Question $question){
+        return view ('questions.edit', compact('question'));
+    }
+
+    public function update(Question $question){
+        $this->validate(request(), [
+            'QuestionType' => 'required',
+            'QuestionText' => 'required'
+        ]);
+
+        $question->QuestionType = request('QuestionType');
+        $question->QuestionText = request('QuestionText');
+        $question->save();
+
+        return redirect('/questions');
+    }
+
+    public function delete(Question $question){
+        $question->delete();
+        return redirect('/questions');
+    }
 }
