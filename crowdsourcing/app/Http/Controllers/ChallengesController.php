@@ -15,32 +15,43 @@ class ChallengesController extends Controller
         $challenges = DB::table('questions')->where('QuestionType', "1")
             ->join('options', 'options.QuestionId', '=', 'questions.id')
             ->get();
-            $questionIndex = array("First" => $id);
-            //$questionIndex = array("First"=>"0", "Second"=>"1");
-            //echo(sizeof($challenges));
-            //echo($challenges);
-            return view('challenges.index', compact('challenges', 'questionIndex'));
+
+            if ($id < 0){
+                $id = 0;
+            }
+            if ($id % 2 == 1){
+                $id = $id - 1;
+            }
+            return view('challenges.index', compact('challenges', 'id'));
     }
 
     public function textImageIndex($id){
         $challenges = DB::table('questions')->where('QuestionType', "2")
             ->join('options', 'options.QuestionId', '=', 'questions.id')
             ->get();
-            $questionIndex = array("First" => $id);
-           
-            //echo(sizeof($challenges));
-            echo($challenges);
-            return view('challenges.index', compact('challenges', 'questionIndex'));
+
+            if ($id < 0){
+                $id = 0;
+            }
+            if ($id % 2 == 1){
+                $id = $id - 1;
+            }
+
+            return view('challenges.index', compact('challenges', 'id'));
     }
 
     public function imageImageIndex($id){
         $challenges = DB::table('questions')->where('QuestionType', "3")
             ->join('options', 'options.QuestionId', '=', 'questions.id')
             ->get();
-            $questionIndex = array("First" => $id);
-            //echo(sizeof($challenges));
-            //echo($challenges);
-            return view('challenges.index', compact('challenges', 'questionIndex'));
+
+            if ($id < 0){
+                $id = 0;
+            }
+            if ($id % 2 == 1){
+                $id = $id - 1;
+            }
+            return view('challenges.index', compact('challenges', 'id'));
     }
 
     public function create(){
