@@ -41,18 +41,24 @@ class OptionsController extends Controller
     }
 
     public function store(){
-        $option1 = new Option();
-        $option2 = new Option();
+        $this->validate(request(), [
+            'Correct1' => 'required',
+            'Correct2' => 'required',
+            'ImgLocation1' => 'required',
+            'ImgLocation2' => 'required', 
+            'QuestionID' => 'required'
+        ]);
+        Option::create([
+            'Correct' => request('Correct1'),
+            'ImgLocation' => request('ImgLocation1'),
+            'QuestionID' => request('QuestionID')
+        ]);
 
-        $option1->Correct = request('Correct1');
-        $option1->ImgLocation = request('ImgLocation1');
-        $option1->QuestionID = request('QuestionID');
-        $option1->save();
-
-        $option2->Correct = request('Correct2');
-        $option2->ImgLocation = request('ImgLocation2');
-        $option2->QuestionID = request('QuestionID');
-        $option2->save();
+        Option::create([
+            'Correct' => request('Correct2'),
+            'ImgLocation' => request('ImgLocation2'),
+            'QuestionID' => request('QuestionID'),
+        ]);
 
         return redirect('/options');
     }

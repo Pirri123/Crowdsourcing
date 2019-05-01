@@ -46,3 +46,7 @@ Route::get('/adminPanel', function() {
 
 Route::get('/accounts', 'AccountsController@index');
 Route::get('/challenges', 'ChallengesController@index');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

@@ -15,9 +15,9 @@
                 
                     <div class="form-group">
                         <label for="QuestionType">Tipo de Pregunta</label> <br>
-                        <input type="radio" name="QuestionType" value="1"> Text-Text<br>
-                        <input type="radio" name="QuestionType" value="2"> Text-Image<br>
-                        <input type="radio" name="QuestionType" value="3"> Image-Image<br>
+                        <input type="radio" name="QuestionType" value="1" required> Text-Text<br>
+                        <input type="radio" name="QuestionType" value="2" required> Text-Image<br>
+                        <input type="radio" name="QuestionType" value="3" required> Image-Image<br>
                     </div>
                 
                     <div class="form-group">

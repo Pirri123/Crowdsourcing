@@ -16,13 +16,17 @@ class QuestionsController extends Controller
     }
 
     public function store(){
-        $question = new Question();
+        $this->validate(request(), [
+            'QuestionType' => 'required',
+            'QuestionText' => 'required'
+        ]);
 
-        $question->QuestionType = request('QuestionType');
-        $question->QuestionText = request('QuestionText');
-        $question->save();
+        Question::create([
+            'QuestionType' => request('QuestionType'),
+            'QuestionText' => request('QuestionText')
+        ]);
 
-        return redirect('/');
+        return redirect('/questions');
 
     }
 
@@ -36,9 +40,10 @@ class QuestionsController extends Controller
             'QuestionText' => 'required'
         ]);
 
-        $question->QuestionType = request('QuestionType');
-        $question->QuestionText = request('QuestionText');
-        $question->save();
+        Question::create([
+            'QuestionType' => request('QuestionType'),
+            'QuestionText' => request('QuestionText')
+        ]);
 
         return redirect('/questions');
     }

@@ -14,10 +14,10 @@
             
                 <div class="form-group">
                         <label for="Question">Question
-                            <select class="form-control" name="QuestionID">
+                            <select class="form-control" name="QuestionID" >
                                 <option value="0">Selecciona</option>
                                 @foreach($questions as $question)
-                                    <option value="{{$question->id}}">{{$question->QuestionText}}</option>
+                                    <option value="{{$question->id}} " required>{{$question->QuestionText}}</option>
                                 @endforeach
                             </select>
                         </label>
@@ -25,8 +25,8 @@
                 
                     <div class="form-group">
                         <label for="Correct1">Correct</label> <br>
-                        <input type="radio" name="Correct" value="1"> Right Answer<br>
-                        <input type="radio" name="Correct" value="0"> Wrong Answer<br>
+                        <input type="radio" name="Correct" value="1" required> Right Answer<br>
+                        <input type="radio" name="Correct" value="0" required> Wrong Answer<br>
                     </div>
                 
                     <div class="form-group">
