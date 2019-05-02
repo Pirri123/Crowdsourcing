@@ -5,6 +5,10 @@
   <title>Challenge!</title>
 </head>
 <body>
+    @if(Auth::user()->userType == "Admin")
+        <script>window.location = "/";</script>
+    @endif
+
     @if($id == count($challenges))
     <h1> Ya no hay más preguntas, vuelva más tarde! </h1>
     @else
