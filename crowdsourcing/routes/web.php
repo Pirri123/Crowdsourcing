@@ -18,6 +18,9 @@ Route::get('/', function () {
 Route::get('/texttext/{questionId}', 'ChallengesController@textTextIndex');
 Route::get('/textimage/{questionId}', 'ChallengesController@textImageIndex');
 Route::get('/imageimage/{questionId}', 'ChallengesController@imageImageIndex');
+Route::post('/texttext', 'ChallengesController@storeTextText');
+Route::post('/textimage/{questionId}', 'ChallengesController@storeTextImage');
+Route::post('/imageimage/{questionId}', 'ChallengesController@storeImageImage');
 
 Route::get('/questions/create', 'QuestionsController@create');
 Route::post('/questions', 'QuestionsController@store');

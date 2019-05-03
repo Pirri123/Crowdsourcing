@@ -14,11 +14,13 @@ class CreateOptionsTable extends Migration
     public function up()
     {
         Schema::create('options', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
             $table->boolean('Correct');
             $table->string('ImgLocation');
-            $table->integer('QuestionID')->references('id')->on('questions')->onDelete('cascade')->onUpdate('cascade');
+            $table->integer('QuestionID')->unsigned();
             $table->timestamps();
+
+            $table->foreign('QuestionID')->references('id')->on('questions')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

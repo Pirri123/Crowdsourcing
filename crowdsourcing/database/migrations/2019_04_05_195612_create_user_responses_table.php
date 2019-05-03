@@ -14,12 +14,16 @@ class CreateUserResponsesTable extends Migration
     public function up()
     {
         Schema::create('user_responses', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
+            $table->integer('UserID')->unsigned();;
             $table->string('RightAnswer');
             $table->string('WrongAnswer');
             $table->string('GivenAnswer');
-            $table->integer('QuestionID')->references('id')->on('questions')->onDelete('cascade')->onUpdate('cascade');
+            $table->integer('QuestionID')->unsigned();;
             $table->timestamps();
+            
+            $table->foreign('UserID')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('QuestionID')->references('id')->on('questions')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
