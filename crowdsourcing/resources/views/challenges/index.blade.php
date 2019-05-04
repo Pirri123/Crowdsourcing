@@ -34,10 +34,17 @@
         <script>window.location = "/";</script>
     @endif
 
-
     @if($id == count($challenges))
-    <h1> Ya no hay más preguntas, vuelva más tarde! </h1>
-    @else
+        <h1> There are no more questions, come back soon!</h1>
+        @else
+
+    @foreach($userResponses as $response)
+        @if($response->QuestionID == $challenges[$id]->QuestionID && $response->UserID == Auth::user()->id)
+            <script>window.location = "/{{Request::segment(1)}}/{{$id+2}}"</script>
+
+        @endif
+    @endforeach
+
         <h1> {{$challenges[$id]->QuestionText}} </h1>
 
         <form action="/{{Request::segment(1)}}" method="POST">

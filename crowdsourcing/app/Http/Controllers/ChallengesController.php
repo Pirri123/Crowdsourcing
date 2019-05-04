@@ -16,7 +16,8 @@ class ChallengesController extends Controller
         $challenges = DB::table('questions')->where('QuestionType', "1")
             ->join('options', 'options.QuestionId', '=', 'questions.id')
             ->get();
-            echo($challenges);
+            //echo($challenges);
+            $userResponses = UserResponse::all();
 
             if ($id < 0){
                 $id = 0;
@@ -24,13 +25,14 @@ class ChallengesController extends Controller
             if ($id % 2 == 1){
                 $id = $id - 1;
             }
-            return view('challenges.index', compact('challenges', 'id'));
+            return view('challenges.index', compact('challenges', 'id', 'userResponses'));
     }
 
     public function textImageIndex($id){
         $challenges = DB::table('questions')->where('QuestionType', "2")
             ->join('options', 'options.QuestionId', '=', 'questions.id')
             ->get();
+            $userResponses = UserResponse::all();
 
             if ($id < 0){
                 $id = 0;
@@ -39,13 +41,14 @@ class ChallengesController extends Controller
                 $id = $id - 1;
             }
 
-            return view('challenges.index', compact('challenges', 'id'));
+            return view('challenges.index', compact('challenges', 'id', 'userResponses'));
     }
 
     public function imageImageIndex($id){
         $challenges = DB::table('questions')->where('QuestionType', "3")
             ->join('options', 'options.QuestionId', '=', 'questions.id')
             ->get();
+            $userResponses = UserResponse::all();
 
             if ($id < 0){
                 $id = 0;
@@ -53,7 +56,7 @@ class ChallengesController extends Controller
             if ($id % 2 == 1){
                 $id = $id - 1;
             }
-            return view('challenges.index', compact('challenges', 'id'));
+            return view('challenges.index', compact('challenges', 'id', 'userResponses'));
     }
 
     public function storeTextText(){
@@ -89,6 +92,76 @@ class ChallengesController extends Controller
         $newChallenge = ((int) request('challenge_id') + 2);
 
         return redirect('/texttext/' . $newChallenge);
+    }
+
+    public function storeTextImage(){
+        $this->validate(request(), [
+            'option' => 'required',
+            'user_id' => 'required',
+            'challenge_id' => 'required'
+        ]);
+
+        $challenges = DB::table('questions')->where('QuestionType', "2")
+            ->join('options', 'options.QuestionId', '=', 'questions.id')
+            ->get();
+
+            $right = null;
+            $wrong = null;
+            $questionID = $challenges[request('challenge_id')]->QuestionID;
+        
+        if ($challenges[request('challenge_id')]->Correct == 1){
+            $right = $challenges[request('challenge_id')]->ImgLocation;
+            $wrong =  $challenges[request('challenge_id') + 1]->ImgLocation;
+        } else{
+            $right = $challenges[request('challenge_id') + 1]->ImgLocation;
+            $wrong =  $challenges[request('challenge_id')]->ImgLocation;
+        }
+
+        UserResponse::create([
+            'UserID' => request('user_id'),
+            'GivenAnswer' => request('option'),
+            'RightAnswer' => $right,
+            'WrongAnswer' => $wrong,
+            'QuestionID' => $questionID
+        ]);
+        $newChallenge = ((int) request('challenge_id') + 2);
+
+        return redirect('/textimage/' . $newChallenge);
+    }
+
+    public function storeImageImage(){
+        $this->validate(request(), [
+            'option' => 'required',
+            'user_id' => 'required',
+            'challenge_id' => 'required'
+        ]);
+
+        $challenges = DB::table('questions')->where('QuestionType', "3")
+            ->join('options', 'options.QuestionId', '=', 'questions.id')
+            ->get();
+
+            $right = null;
+            $wrong = null;
+            $questionID = $challenges[request('challenge_id')]->QuestionID;
+        
+        if ($challenges[request('challenge_id')]->Correct == 1){
+            $right = $challenges[request('challenge_id')]->ImgLocation;
+            $wrong =  $challenges[request('challenge_id') + 1]->ImgLocation;
+        } else{
+            $right = $challenges[request('challenge_id') + 1]->ImgLocation;
+            $wrong =  $challenges[request('challenge_id')]->ImgLocation;
+        }
+
+        UserResponse::create([
+            'UserID' => request('user_id'),
+            'GivenAnswer' => request('option'),
+            'RightAnswer' => $right,
+            'WrongAnswer' => $wrong,
+            'QuestionID' => $questionID
+        ]);
+        $newChallenge = ((int) request('challenge_id') + 2);
+
+        return redirect('/imageimage/' . $newChallenge);
     }
 
     public function create(){
