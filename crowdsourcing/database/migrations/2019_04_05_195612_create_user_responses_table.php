@@ -17,7 +17,6 @@ class CreateUserResponsesTable extends Migration
             $table->increments('id');
             $table->integer('UserID')->unsigned();;
             $table->string('RightAnswer');
-            $table->string('WrongAnswer');
             $table->string('GivenAnswer');
             $table->integer('QuestionID')->unsigned();;
             $table->timestamps();

@@ -19,29 +19,30 @@ Route::get('/texttext/{questionId}', 'ChallengesController@textTextIndex')->midd
 Route::get('/textimage/{questionId}', 'ChallengesController@textImageIndex')->middleware('auth');
 Route::get('/imageimage/{questionId}', 'ChallengesController@imageImageIndex')->middleware('auth');
 Route::post('/texttext', 'ChallengesController@storeTextText')->middleware('auth');
-Route::post('/textimage/{questionId}', 'ChallengesController@storeTextImage')->middleware('auth');
-Route::post('/imageimage/{questionId}', 'ChallengesController@storeImageImage')->middleware('auth');
+Route::post('/textimage', 'ChallengesController@storeTextImage')->middleware('auth');
+Route::post('/imageimage', 'ChallengesController@storeImageImage')->middleware('auth');
 
 Route::get('/questions/create', 'QuestionsController@create')->middleware('auth');
 Route::post('/questions', 'QuestionsController@store')->middleware('auth');
 Route::get('/questions', 'QuestionsController@index')->middleware('auth');
 Route::get('/questions/edit/{question}', 'QuestionsController@edit')->middleware('auth');
-Route::post('/questions/edit/{question}', 'QuestionsController@update')->middleware('auth');
+Route::patch('/questions/edit/{question}', 'QuestionsController@update')->middleware('auth');
 Route::get('/questions/delete/{question}', 'QuestionsController@delete')->middleware('auth');
 
+/*
 Route::get('/options/create', 'OptionsController@create')->middleware('auth');
 Route::post('/options', 'OptionsController@store')->middleware('auth');
 Route::get('/options', 'OptionsController@index')->middleware('auth');
 Route::get('/options/edit/{option}', 'OptionsController@edit')->middleware('auth');
 Route::post('/options/edit/{option}', 'OptionsController@update')->middleware('auth');
-Route::get('/options/delete/{option}', 'OptionsController@delete')->middleware('auth');
+Route::get('/options/delete/{option}', 'OptionsController@delete')->middleware('auth');*/
 
 
 
-
+/*
 Route::get('/signIn', function() {
     return view('signIn');
-});
+});*/
 
 Route::get('/adminPanel', function() {
     return view('adminPanel');

@@ -14,6 +14,8 @@
                     <tr>
                         <th>Question</th>
                         <th>Type</th>
+                        <th>Image</th>
+                        <th>Answer</th>
                         <th>Editar</th>
                         <th>Eliminar</th>
                     </tr>
@@ -29,6 +31,8 @@
                             @else
                             <td>Image-Image </td>
                             @endif
+                            <td>{{$question->ImgLocation}}</td>
+                            <td> {{$question->Answer}} </td>
                             <td><a href="/questions/edit/{{$question->id}}"><button type="button" class="btn btn-xs btn-info" >Editar</button></a></td>
                             <td><a href="/questions/delete/{{$question->id}}" id="deleteQuestion"><button type="button" class="btn btn-xs btn-danger" >Eliminar</button></a></td>
                         </tr>

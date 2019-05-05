@@ -27,11 +27,11 @@ class OptionsController extends Controller
 
     public function update(Option $option){
         $this->validate(request(), [
-            'ImgLocation' => 'required',
-            'Correct' => 'required'
+            'Answer' => 'required',
+            'QuestionID' => 'required'
         ]);
 
-        $option->Correct = request('Correct');
+        $option->Answer = request('Answer');
         $option->ImgLocation = request('ImgLocation');
         $option->save();
 
