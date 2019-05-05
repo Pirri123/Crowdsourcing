@@ -6,6 +6,10 @@
     <link rel="stylesheet" href="{{asset('css/master.css')}}">
 </head>
 <body>
+    @if(Auth::user()->userType == "Admin")
+        <script>window.location = "/";</script>
+    @endif
+
     <header>   
             <nav>  
                     <div class="logo">
@@ -27,12 +31,11 @@
         <h1>What do you want to do?</h1>
         <br>
         <div class="links">   
-            <a href="" class="btnG btn">Create a new question</a>
-            <a href="" class="btn">Image - Image Challenge</a>
-            <a href="" class="btn">Text - Text Challenge</a>
-            <a href="" class="btn">Image - Text Challenge</a>
-            <a href="" class="btnG btn">See statistics</a>
-            <a href="" class="btnG btn">logout</a>
+            <a href="questions" class="btn">See current questions</a>
+            <a href="questions/create" class="btnG btn">Create a new question</a>
+            <a href="options" class="btn">See current options</a>
+            <a href="options/create" class="btn">Create new options</a>
+            <a href="stats" class="btnG btn">See statistics</a>
         </div>
     </main>
 </body>
