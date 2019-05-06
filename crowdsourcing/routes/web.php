@@ -67,7 +67,7 @@ Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');  
 
 
 
-Route::view("/","inicio");
+Route::view("/","inicio")->middleware('auth')->name("inicio");
 
 Route::get('/texttext/{questionId}', 'ChallengesController@textTextIndex')->middleware('auth');
 Route::get('/textimage/{questionId}', 'ChallengesController@textImageIndex')->middleware('auth');
@@ -97,7 +97,7 @@ Route::get('/adminPanel', function() {
     return view('adminPanel');
 })->middleware('auth');
 */
-Route::view("/adminPanel", "adminPanel");
+Route::view("/adminPanel", "adminPanel")->middleware('auth')->name("adminPanel");
 
 Route::get('/stats', 'StatsController@index')->middleware('auth');
 Auth::routes();

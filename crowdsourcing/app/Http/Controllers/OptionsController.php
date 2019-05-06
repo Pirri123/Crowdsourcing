@@ -9,6 +9,14 @@ use App\Question;
 
 class OptionsController extends Controller
 {
+
+            public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
+    
+
     public function index(){
         $options = Option::all();
         return view('options.index', compact('options'));

@@ -6,6 +6,11 @@ use App\Question;
 use App\UserResponse;
 class ChallengesController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function textTextIndex($id){
         $challenges = DB::table('questions')->where('QuestionType', "1")
             ->get();

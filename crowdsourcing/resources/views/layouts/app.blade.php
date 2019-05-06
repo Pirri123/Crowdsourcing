@@ -47,16 +47,11 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
-                
-               
-                <a class="navbar-brand">
-                    Home
-                    @if(isset(Auth::user()->userType) && user()->userType  == "Admin")
-                        <script>window.location = "/adminPanel";</script>
-                        @else
-                         <script>window.location = "/";</script>
-                    @endif
-                </a>
+                @if(Auth::user() && Auth::user()->userType == "Admin")
+                    <a class="navbar-brand" href="{{route("adminPanel")}}">Home</a>
+                @elseif(Auth::user() && Auth::user()->userType == "User")
+                    <a class="navbar-brand" href="{{route("inicio")}}">Home</a>
+                @endif
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
