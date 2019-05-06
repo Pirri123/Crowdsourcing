@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUserResponsesTable extends Migration
+class CreateOptionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,13 @@ class CreateUserResponsesTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_responses', function (Blueprint $table) {
+        Schema::create('options', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('UserID')->unsigned();;
-            $table->string('RightAnswer');
-            $table->string('WrongAnswer');
-            $table->string('GivenAnswer');
-            $table->integer('QuestionID')->unsigned();;
+            $table->boolean('Correct');
+            $table->string('ImgLocation');
+            $table->integer('QuestionID')->unsigned();
             $table->timestamps();
-            
-            $table->foreign('UserID')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+
             $table->foreign('QuestionID')->references('id')->on('questions')->onDelete('cascade')->onUpdate('cascade');
         });
     }
@@ -34,6 +31,6 @@ class CreateUserResponsesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_responses');
+        Schema::dropIfExists('options');
     }
 }

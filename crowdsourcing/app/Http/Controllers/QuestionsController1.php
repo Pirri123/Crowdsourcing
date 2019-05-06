@@ -1,3 +1,4 @@
+
 <?php
 
 namespace App\Http\Controllers;
@@ -7,26 +8,25 @@ use App\Question;
 
 class QuestionsController extends Controller
 {
+    
     public function index(){
         $questions = Question::all();
         return view('questions.index', compact('questions'));
     }
+    
     public function create(){
         return view('questions.create');
     }
 
+
     public function store(){
-        $this->validate(request(), [
-            'QuestionType' => 'required',
-            'QuestionText' => 'required'
-        ]);
+        $question = new Question();
 
-        Question::create([
-            'QuestionType' => request('QuestionType'),
-            'QuestionText' => request('QuestionText')
-        ]);
+        $question->QuestionType = request('QuestionType');
+        $question->QuestionText = request('QuestionText');
+        $question->save();
 
-        return redirect('/questions');
+        return redirect('/');
 
     }
 
@@ -40,10 +40,9 @@ class QuestionsController extends Controller
             'QuestionText' => 'required'
         ]);
 
-        Question::create([
-            'QuestionType' => request('QuestionType'),
-            'QuestionText' => request('QuestionText')
-        ]);
+        $question->QuestionType = request('QuestionType');
+        $question->QuestionText = request('QuestionText');
+        $question->save();
 
         return redirect('/questions');
     }

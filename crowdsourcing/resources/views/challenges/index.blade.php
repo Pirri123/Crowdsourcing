@@ -5,7 +5,6 @@
   <title>Challenge!</title>
 </head>
 <style>
-
     /* HIDE RADIO */
     
     [type=radio] { 
@@ -27,7 +26,6 @@
       outline: 2px solid #f00;
     }
     
-
 </style>
 <body>
     @if(Auth::user()->userType == "Admin")
@@ -86,4 +84,3 @@
       
     </div>
 </body>
-</html>

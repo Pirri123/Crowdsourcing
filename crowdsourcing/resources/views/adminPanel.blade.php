@@ -1,40 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title> Welcome</title>
-    <link rel="stylesheet" href="{{asset('css/master.css')}}">
-</head>
+@extends ('layouts.app')
+
+@section("estilos")
+    <link href="{{ asset('css/master.css') }}" rel="stylesheet">
+
+@endsection
 <body>
-    @if(Auth::user()->userType == "Admin")
-        <script>window.location = "/";</script>
-    @endif
-
-    <header>   
-            <nav>  
-                    <div class="logo">
-                        <a href="" id="casa">
-                            <img src="{{asset('img/home.jpeg')}}" alt="">Home
-                        </a>
-                    </div>
-                    <div class="title">Welcome Admin</div>
-
-                     <div class="logo">
-                        <a href="" id="ayuda">
-                            <img src="{{asset('img/user.jpeg')}}" alt="">Account
-                        </a>
-                     </div>
-                    
-            </nav> 
-    </header>
-    <main>  
-        <h1>What do you want to do?</h1>
-        <br>
+    @section ('content')
+    <main  style="text-align:center">  
+        <div class="title">Welcome Admin</div>
         <div class="links">   
-            <a href="questions" class="btn">See current questions</a>
-            <a href="questions/create" class="btnG btn">Create a new question</a>
-            <a href="stats" class="btnG btn">See statistics</a>
+            <a href="" class="btnG btn">Create a new question</a>
+            <a href="" class="btn">Image - Image Challenge</a>
+            <a href="" class="btn">Text - Text Challenge</a>
+            <a href="" class="btn">Image - Text Challenge</a>
+            <a href="" class="btnG btn">See statistics</a>
+            <a href="" class="btnG btn">logout</a>
         </div>
     </main>
+    @endsection
 </body>
-</html>
+
+
+
+{{--  @extends ('layouts.app')
+
+@section ('content')
+    <h2 style="text-align: center; height: 400px; margin-top: 90px;">Welcome Admin.jpg</h2>
+    <div class="links">   
+        <a href="" class="btnG btn">Create a new question</a>
+        <a href="" class="btn">Image - Image Challenge</a>
+        <a href="" class="btn">Text - Text Challenge</a>
+        <a href="" class="btn">Image - Text Challenge</a>
+        <a href="" class="btnG btn">See statistics</a>
+        <a href="" class="btnG btn">logout</a>
+    </div>
+@endsection --}}
+
