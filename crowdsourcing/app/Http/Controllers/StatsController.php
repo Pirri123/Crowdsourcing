@@ -30,9 +30,27 @@ class StatsController extends Controller
         ->where('GivenAnswer', 'No')
         ->get();
 
-        dd(count($truePos), count($falsePos), count($trueNeg), count($falseNeg));
+        $conP = DB::table('user_responses')->where('RightAnswer', 'Yes')
+        ->get();
 
-        return view('stats.index', compact('$userResponses'));
+        $conN = DB::table('user_responses')->where('RightAnswer', 'No')
+        ->get();
+
+        $sensitivity = count($truePos)/count($conP);
+        $specifity = count($trueNeg)/count($conN);
+        $ppv = count($truePos)/(count($truePos)+count($falsePos));
+        $npv = count($trueNeg)/(count($trueNeg)+count($falseNeg));
+        $fnr = count($falseNeg)/count($conP);
+        $fpr = count($falsePos)/count($conN);
+        $fdr = 1-$ppv;
+        $for = 1-$npv;
+
+
+
+        //dd(count($truePos), count($falsePos), count($trueNeg), count($falseNeg), count($userResponses));
+
+        return view('stats.index', compact('userResponses', 'truePos', 'trueNeg', 'falsePos', 'falseNeg',
+        'sensitivity', 'specifity', 'ppv', 'npv', 'fnr', 'fpr', 'fdr', 'for'));
 
     }
 }

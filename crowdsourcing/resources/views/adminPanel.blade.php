@@ -33,8 +33,6 @@
         <div class="links">   
             <a href="questions" class="btn">See current questions</a>
             <a href="questions/create" class="btnG btn">Create a new question</a>
-            <a href="options" class="btn">See current options</a>
-            <a href="options/create" class="btn">Create new options</a>
             <a href="stats" class="btnG btn">See statistics</a>
         </div>
     </main>
