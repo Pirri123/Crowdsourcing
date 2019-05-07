@@ -1,7 +1,9 @@
 
 @extends ('layouts.app2')
 
-
+@if(Auth::user()->userType == "User")
+<script> window.location.replace("/"); </script>
+@endif
 
 <body>
 @section ('content')
@@ -10,7 +12,7 @@
 
                 <div style="text-align:center;">
                     <div class="form-group" >
-                         <div class="title">Tipo de Pregunta</div>
+                         <div class="title">Question Type</div>
                         <br>
 
                             <input type="radio" name="QuestionType" value="1" required> Text - Text<br>
@@ -20,13 +22,13 @@
                     </div>
                 
                     <div class="form-group" style=";width: 400px; margin:auto;" >
-                        <label style="font-size: 20px;"for="QuestionText"1> Texto de la Pregunta </label>
+                        <label style="font-size: 20px;"for="QuestionText"1> Question Description </label>
                         <textarea class="form-control"  id="QuestionText" name="QuestionText" required></textarea>
                     </div>
 
                     <div>
                         <br>
-                        <button type="submit" style="background-color: #6cb2eb;"class="btn btn-template-main" >Actualizar</button>
+                        <button type="submit" style="background-color: #6cb2eb;"class="btn btn-template-main" >Update</button>
                         
                     </div>
 

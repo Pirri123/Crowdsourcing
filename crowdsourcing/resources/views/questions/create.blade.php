@@ -5,6 +5,9 @@
     <title></title>
 </head>
 <body>
+        @if(Auth::user()->userType == "User")
+        <script> window.location.replace("/"); </script>
+        @endif
 
     <h1> Create new Proyect</h1>
     

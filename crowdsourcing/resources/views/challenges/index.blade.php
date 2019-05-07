@@ -1,7 +1,9 @@
 @extends("layouts.app")
 @section("content")
 
-
+    @if(Auth::user()->userType == "Admin")
+        <script> window.location.replace("/adminPanel"); </script>
+    @endif
 
  
     @if($id == count($challenges))

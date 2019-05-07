@@ -15,7 +15,7 @@
             <div class="card-body">
 
               <p class= "card-text">
-                <a href="" >Text - Text Challenge </a>
+                <a href="/texttext/0" >Text - Text Challenge </a>
               </p>
                          
 
@@ -30,7 +30,9 @@
           <div class="card mb-4 shadow-sm">
             <img src={{ asset('img/thumbprint.png')}} alt="thumbprint" style="width:100%;height:225px;" >
             <div class="card-body">
-              <p class="card-text">Image - Image Challenge</p>
+              <p class="card-text">
+              <a href="/imageimage/0" >Text - Text Challenge </a>
+              </p>
               <div class="d-flex justify-content-between align-items-center">
               </div>
             </div>
@@ -41,7 +43,9 @@
           <div class="card mb-4 shadow-sm">
             <img src={{ asset('img/mountain.jpg')}} alt="mountain" style="width:100%;height:225px;" >
             <div class="card-body">
-              <p class="card-text">Text - Image Challenge</p>
+              <p class="card-text">
+              <a href="/textimage/0" >Text - Text Challenge </a>
+              </p>
               <div class="d-flex justify-content-between align-items-center">
               </div>
             </div>

@@ -1,5 +1,8 @@
 @extends ('layouts.app')
 <body>
+        @if(Auth::user()->userType == "User")
+        <script> window.location.replace("/"); </script>
+        @endif
     @section ('content')
     
 <div class="row" >
@@ -12,8 +15,8 @@
                     <tr>
                         <th>Question</th>
                         <th>Type</th>
-                        <th>Editar</th>
-                        <th>Eliminar</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
                     </tr>
                 </thead>
                 <tbody id="index">
@@ -27,14 +30,14 @@
                             @else
                             <td>Image-Image </td>
                             @endif
-                            <td><a href="/questions/edit/{{$question->id}}"><button type="button" class="btn btn-xs btn-info" >Editar</button></a></td>
-                            <td><a href="/questions/delete/{{$question->id}}" id="deleteQuestion"><button type="button" class="btn btn-xs btn-danger" >Eliminar</button></a></td>
+                            <td><a href="/questions/edit/{{$question->id}}"><button type="button" class="btn btn-xs btn-info" >Edit</button></a></td>
+                            <td><a href="/questions/delete/{{$question->id}}" id="deleteQuestion"><button type="button" class="btn btn-xs btn-danger" >Delete</button></a></td>
                         </tr>
                     @endforeach
                 </tbody>
             </table>
         </div>
-        <div class="alert alert-danger" role="alert" id="questionNotFound" style="display: none;">No hay coincidencias con esa búsqueda.</div>
+        
     </fieldset>
 </div>
     @endsection
