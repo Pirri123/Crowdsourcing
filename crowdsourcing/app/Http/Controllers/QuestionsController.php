@@ -25,12 +25,18 @@ class QuestionsController extends Controller
     public function store(){
         $this->validate(request(), [
             'QuestionType' => 'required',
-            'QuestionText' => 'required'
+            'QuestionText' => 'required',
+            'Answer' => 'required',
+            'ImgLocation' => 'required'
         ]);
 
+        //dd("aaa");
+
         Question::create([
+            'ImgLocation' => request('ImgLocation'),
             'QuestionType' => request('QuestionType'),
-            'QuestionText' => request('QuestionText')
+            'QuestionText' => request('QuestionText'),
+            'Answer' => request('Answer'),
         ]);
 
         return redirect('/questions');
@@ -44,13 +50,18 @@ class QuestionsController extends Controller
     public function update(Question $question){
         $this->validate(request(), [
             'QuestionType' => 'required',
-            'QuestionText' => 'required'
+            'QuestionText' => 'required',
+            'Answer' => 'required',
+            'ImgLocation' => 'required'
         ]);
 
-        Question::create([
-            'QuestionType' => request('QuestionType'),
-            'QuestionText' => request('QuestionText')
-        ]);
+        
+            $question->QuestionType = request('QuestionType');
+            $question->QuestionText = request('QuestionText');
+            $question->Answer = request('Answer');
+            $question->ImgLocation = request('ImgLocation');
+            $question->save();
+        
 
         return redirect('/questions');
     }

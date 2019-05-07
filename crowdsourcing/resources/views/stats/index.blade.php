@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-
-    <title>Statistics</title>
-</head>
-<body>
+@extends ('layouts.app')
+  <body>
+    @section ('content')
     @if(Auth::user()->userType == "User")
         <script>window.location = "/";</script>
     @endif
@@ -13,11 +9,14 @@
       <h1>Total Amount of Responses: {{count($userResponses)}} </h1>
     </div>
 
-    <div class="table-responsive">
-            <table>
-                    <caption>
-                      Confusion Matrix
+    <div class="table-responsive" style="margin:auto; width:500px;">
+            <table style="margin:auto; width:500px;">
+              
+                <caption>
+                      
                     </caption>
+              
+                    
                     <col>
                     <col>
                     <colgroup span="4"></colgroup>
@@ -49,8 +48,11 @@
                     </tbody>
                   </table>
         </div>
-
-        <div>
+        <h2 style="margin:auto; width:300px;">
+          Confusion Matrix
+        </h2>
+        <br>
+        <div style="margin:auto; width:500px;">
           <p>True Positive Rate: {{$sensitivity}} </p>
           <p>True Negative Rate: {{$specifity}} </p>
           <p>Positive Predictive Value: {{$ppv}} </p>
@@ -62,4 +64,4 @@
         </div>
 
 </body>
-</html>
+@endsection

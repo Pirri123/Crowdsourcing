@@ -17,6 +17,8 @@ class CreateQuestionsTable extends Migration
             $table->increments('id');
             $table->integer('QuestionType'); // /*1 Text-Text, 2 Text-Image, 3 Image-Image*/
             $table->string('QuestionText');
+            $table->string('ImgLocation');
+            $table->string('Answer');
             $table->timestamps();
         });
     }
