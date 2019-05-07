@@ -9,13 +9,13 @@
         <script> window.location.replace("/"); </script>
         @endif
 
-    <h1> Create new Proyect</h1>
+    <h1> Create new Question</h1>
     
     <form method="POST" action="/questions">
         {{csrf_field()}}
         <div>
                 <div class="form-group">
-                        <label for="QuestionType">Tipo de Pregunta</label> <br>
+                        <label for="QuestionType">Question Type</label> <br>
                         <input type="radio" name="QuestionType" value="1" required> Text-Text<br>
                         <input type="radio" name="QuestionType" value="2" required> Text-Image<br>
                         <input type="radio" name="QuestionType" value="3" required> Image-Image<br>
