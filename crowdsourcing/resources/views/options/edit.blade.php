@@ -1,13 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Edit</title>
-</head>
+@extends ('layouts.app')
 <body>
-
+    @section ('content')
             
         <form action="/options/edit/{{$option->id}}" method="POST">
                 {{ csrf_field() }}
@@ -39,5 +32,5 @@
                        
                 </div>
             </form>
+            @endsection
 </body>
-</html>

@@ -1,14 +1,12 @@
-<!DOCTYPE html>
-<head>
-
-    <title>Questions</title>
-</head>
+@extends ('layouts.app')
 <body>
+    @section ('content')
     
-<div class="row">
-    <fieldset>
-        <legend></legend>
-        <div class="table-responsive">
+<div class="row" >
+    <fieldset style="margin: auto;">
+        
+        <div class="table-responsive" >
+
             <table class="table table-hover">
                 <thead>
                     <tr>
@@ -39,6 +37,5 @@
         <div class="alert alert-danger" role="alert" id="questionNotFound" style="display: none;">No hay coincidencias con esa búsqueda.</div>
     </fieldset>
 </div>
-    
+    @endsection
 </body>
-</html>
